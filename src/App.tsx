@@ -1,28 +1,10 @@
-import React, { useContext } from "react";
-import { AuthContext, AuthProvider } from "./util/AuthContext";
+import { AuthProvider } from "./util/AuthContext";
+import Header from "./component";
 
-// Componente Consumidor do contexto
-const UserInfo: React.FC = () => {
-  // Acessar o contexto usando o hook useContext
-  const authData = useContext(AuthContext);
-
-  return (
-    <div>
-      <h2>User Info</h2>
-      {authData?.authenticated ? (
-        <p>Welcome, {authData?.user}!</p>
-      ) : (
-        <p>Please log in.</p>
-      )}
-    </div>
-  );
-};
-
-// Componente principal
-const App: React.FC = () => {
+const App = () => {
   return (
     <AuthProvider>
-      <UserInfo />
+      <Header />
     </AuthProvider>
   );
 };

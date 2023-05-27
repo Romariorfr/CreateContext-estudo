@@ -17,7 +17,7 @@ export const AuthContext = createContext<AuthData | undefined>(undefined);
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   // Dados a serem compartilhados
   const authData: AuthData = {
-    authenticated: true,
+    authenticated: false,
     user: "Romário Ferreira",
   };
 
