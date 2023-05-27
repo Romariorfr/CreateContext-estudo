@@ -1,30 +1,5 @@
-import React, { createContext, useContext, ReactNode } from "react";
-
-// Definir o tipo dos dados de autenticação
-interface AuthData {
-  authenticated: boolean;
-  user: string;
-}
-
-interface AuthProviderProps {
-  children: ReactNode;
-}
-
-// Criar um contexto de autenticação com o tipo correspondente
-const AuthContext = createContext<AuthData | undefined>(undefined);
-
-// Componente Provedor do contexto
-const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  // Dados a serem compartilhados
-  const authData: AuthData = {
-    authenticated: true,
-    user: "John Doe",
-  };
-
-  return (
-    <AuthContext.Provider value={authData}>{children}</AuthContext.Provider>
-  );
-};
+import React, { useContext } from "react";
+import { AuthContext, AuthProvider } from "./util/AuthContext";
 
 // Componente Consumidor do contexto
 const UserInfo: React.FC = () => {
